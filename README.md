@@ -1,15 +1,20 @@
 # Drop-In require
 
 dropinrequire.js is a dropin replacement for commonjs [module](http://www.commonjs.org/specs/modules/1.0/)
-in a browser. No server to run, No preprocessing of javascript files.
+in a browser. No server to run, No preprocessing of javascript files. It aims for 
 If you are using [node.js](http://nodejs.org) and is willing to share code with your browser without
-much trouble, dropinrequire.js is for you.
+hassle, [dropinrequire.js](http://jeromeetienne.github.com/dropinrequire.js) is for you.
+
+The code is available on [github](https://github.com/jeromeetienne/dropinrequire.js) under
+[MIT license](https://github.com/jeromeetienne/dropinrequire.js/blob/master/MIT-LICENSE.txt) and has been
+written by [Jerome Etienne](http://jetienne.com).
+That's it. No fuss no muss.
 
 ## How to use it
 
 You just include this in your webpage
 
-    <script type="text/javascript" src="../dropin_require.js"></script>
+    <script type="text/javascript" src="./dropin_require.js"></script>
 
 And after that you can use require(filename) to import your node module in the
 web browser. 
@@ -19,25 +24,9 @@ Suppose you got a module 'foobar.js'
 
     exports.foo	= "bar";
 
-And with this html, it will display "bar". That's it. Show, dont tell. Here it is [live](demo/)
+And with this html, it will display "bar". Show, dont tell? Here it is [live](demo/)
 
     <script src="../dropin_require.js"></script>
     <script>
         alert( require('./foobar.js').foo );
     </script>
-
-## Performance
-
-Currently node's (require())[http://nodejs.org/docs/v0.4.0/api/globals.html#require]
-is synchronous, aka blocking. It may not the best for the users. I will provide
-faster means later (it was my toy of the evening but it is now 2am)
-
-## TODO 
-* Cache the result of the require()
-  * not only for perf, this is about spec.
-* To improve user-experience, provide a way to preload scripts asynchronously
-  * simply a dropinRequireAsync() and put that at the begining.
-* dynamic cache: storing what file is included in a localstorage
-  * and thus preload asynchronously those files
-* on the server, generater a single js file containing all those files
-  * then it is included as a whole in the webpage. dropinrequire.js

@@ -13,9 +13,19 @@
   ><p
   >dropinrequire.js is a dropin replacement for commonjs <a href="http://www.commonjs.org/specs/modules/1.0/"
     >module</a
-    > in a browser. No server to run, No preprocessing of javascript files. If you are using <a href="http://nodejs.org"
+    > in a browser. No server to run, No preprocessing of javascript files. It aims for If you are using <a href="http://nodejs.org"
     >node.js</a
-    > and is willing to share code with your browser without much trouble, dropinrequire.js is for you.</p
+    > and is willing to share code with your browser without hassle, <a href="http://jeromeetienne.github.com/dropinrequire.js"
+    >dropinrequire.js</a
+    > is for you.</p
+  ><p
+  >The code is available on <a href="https://github.com/jeromeetienne/dropinrequire.js"
+    >github</a
+    > under <a href="https://github.com/jeromeetienne/dropinrequire.js/blob/master/MIT-LICENSE.txt"
+    >MIT license</a
+    > and has been written by <a href="http://jetienne.com"
+    >Jerome Etienne</a
+    >. That's it. No fuss no muss.</p
   ><div id="how-to-use-it"
   ><h2
     >How to use it</h2
@@ -23,7 +33,7 @@
     >You just include this in your webpage</p
     ><pre
     ><code
-      >&lt;script type=&quot;text/javascript&quot; src=&quot;../dropin_require.js&quot;&gt;&lt;/script&gt;
+      >&lt;script type=&quot;text/javascript&quot; src=&quot;./dropin_require.js&quot;&gt;&lt;/script&gt;
 </code
       ></pre
     ><p
@@ -36,7 +46,7 @@
 </code
       ></pre
     ><p
-    >And with this html, it will display &quot;bar&quot;. That's it. Show, dont tell. Here it is <a href="demo/"
+    >And with this html, it will display &quot;bar&quot;. Show, dont tell? Here it is <a href="demo/"
       >live</a
       ></p
     ><pre
@@ -52,28 +62,42 @@
   ><h2
     >Performance</h2
     ><p
-    >Currently node's (require())[http://nodejs.org/docs/v0.4.0/api/globals.html#require] is synchronous, aka blocking. It may not the best for the users. I will provide faster means later (it was my toy of the evening but it is now 2am)</p
+    >Currently node's <a href="http://nodejs.org/docs/v0.4.0/api/globals.html#require"
+      >require()</a
+      > is synchronous, aka blocking. It may not the best for the users. I will provide faster means later. see TODO section for lists (it was my toy of the evening but it is now 2am).</p
+    ></div
+  ><div id="about"
+  ><h2
+    >About</h2
     ></div
   ><div id="todo"
   ><h2
     >TODO</h2
     ><ul
     ><li
-      >Cache the result of the require()</li
+      >Cache the result of the require()<ul
+	><li
+	  >not only for perf, this is about spec.</li
+	  ></ul
+	></li
       ><li
-      >not only for perf, this is about spec.</li
+      >To improve user-experience, provide a way to preload scripts asynchronously<ul
+	><li
+	  >simply a dropinRequireAsync() and put that at the begining.</li
+	  ></ul
+	></li
       ><li
-      >To improve user-experience, provide a way to preload scripts asynchronously</li
+      >dynamic cache: storing what file is included in a localstorage<ul
+	><li
+	  >and thus preload asynchronously those files</li
+	  ></ul
+	></li
       ><li
-      >simply a dropinRequireAsync() and put that at the begining.</li
-      ><li
-      >dynamic cache: storing what file is included in a localstorage</li
-      ><li
-      >and thus preload asynchronously those files</li
-      ><li
-      >on the server, generater a single js file containing all those files</li
-      ><li
-      >then it is included as a whole in the webpage. dropinrequire.js</li
+      >on the server, generater a single js file containing all those files<ul
+	><li
+	  >then it is included as a whole in the webpage. dropinrequire.js</li
+	  ></ul
+	></li
       ></ul
     ></div
   ></div
