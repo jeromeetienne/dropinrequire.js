@@ -1,5 +1,7 @@
 exports.aFunction	= function(){
-	console.log("im aFunction in parentmodule");
+	return "im the parent";
 };
+
+exports.wow	= 42;
 
 exports.kid	= require('./childmodule.js')

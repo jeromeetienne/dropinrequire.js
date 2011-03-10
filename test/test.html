@@ -8,8 +8,14 @@
 
 	<script type="text/javascript">
 		var supermod	= require("./parentmodule.js");
-		console.log(supermod.aFunction())
-		console.log(supermod.kid())
+		console.assert(supermod.aFunction() === "im the parent");
+		console.assert(supermod.kid() === "im the kid");
+		console.assert(supermod.wow == 42);
+		console.assert(require('./parentmodule.js').wow == 42);
+		supermod.wow	= 99;
+		console.assert(supermod.wow == 99);
+		console.assert(require('./parentmodule.js').wow == 99);
+		require('./parentmodul45e.js')
 	</script>
 </body>
 </html>
