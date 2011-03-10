@@ -18,15 +18,13 @@ Show, dont tell, here is a (demo)(test/text.html)
 
 Suppose you got a module 'foobar.js'
 
-    exports.foo	= function(){
-        console.log("bar");
-    }
+    exports.foo	= "bar";
 
-And with this html, it will display "bar". That's it
+And with this html, it will display "bar". That's it.
 
     <script src="../dropin_require.js"></script>
     <script>
-        require('./foobar.js').foo
+        alert( require('./foobar.js').foo );
     </script>
 
 ## Performance
