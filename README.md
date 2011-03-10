@@ -17,7 +17,7 @@ Suppose you got a module `foobar.js`
 
     exports.foo	= "bar";
 
-And with this html, it will display `bar`. Show, dont tell? Here it is [live](demo/)
+And with this html, it will display `bar`. Show, dont tell? Here it is [live](http://jeromeetienne.github.com/dropinrequire.js/demo/)
 
     <script src="../dropin_require.js"></script>
     <script>
