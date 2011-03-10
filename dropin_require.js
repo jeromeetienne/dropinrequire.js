@@ -4,18 +4,18 @@ var dropinRequire	= function(moduleId){
 	req.open('GET', moduleId, false);
 	req.send(null);
 	if(req.status != 200)	throw new Error(req)
-	var txt	= dropinRequire.modPrefix + req.responseText + dropinRequire.modSuffix;
+	var txt	= dropinRequire.prefix + req.responseText + dropinRequire.suffix;
 	return dropinRequire.cache[moduleId] = eval(txt);
 }
 dropinRequire.cache	= {};
-dropinRequire.modPrefix	= "(function(){"+
+dropinRequire.prefix	= "(function(){"+
 			"	var _module	= { exports: {} };"+
 			"	var _require	= function(moduleId){"+
 			"		return dropinRequire(moduleId)"+
 			"	};"+
 			"	(function(module, exports, require){";
 			// Here goes the javascript with commonjs modules
-dropinRequire.modSuffix	= "	})(_module, _module.exports, _require);"+
+dropinRequire.suffix	= "	})(_module, _module.exports, _require);"+
 			"	return _module.exports;"+
 			"})();";
 
