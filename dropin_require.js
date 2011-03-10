@@ -2,6 +2,9 @@ var dropinRequire	= function(moduleId){
 	var req	= new XMLHttpRequest();
 	req.open('GET', moduleId, false);
 	req.send(null);
+// TODO here there is a bug
+// - the result MUST be cached
+// - this is not perf, this is spec
 	if(req.status != 200)	throw new Error()
 	var txt	= dropinRequire.modPrefix + req.responseText + dropinRequire.modSuffix;
 	return eval(txt);
