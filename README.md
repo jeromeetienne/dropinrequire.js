@@ -2,9 +2,8 @@
 
 dropinrequire.js is a dropin replacement for commonjs [module](http://www.commonjs.org/specs/modules/1.0/)
 in a browser. No server to run, No preprocessing of javascript files.
-
-If you are using (node.js)[http://nodejs.org] and is willing to share code with your browser without
-much trouble, requireweeby.js is for you.
+If you are using [node.js](http://nodejs.org) and is willing to share code with your browser without
+much trouble, dropinrequire.js is for you.
 
 ## How to use it
 
@@ -20,7 +19,7 @@ Suppose you got a module 'foobar.js'
 
     exports.foo	= "bar";
 
-And with this html, it will display "bar". That's it.
+And with this html, it will display "bar". That's it. Show, dont tell. Here it is [live](demo/)
 
     <script src="../dropin_require.js"></script>
     <script>
