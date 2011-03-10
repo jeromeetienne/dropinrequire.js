@@ -7,8 +7,6 @@ faster means later. see TODO section for lists (it was my toy of the evening but
 
 ## TODO
 
-* Cache the result of the require()
-    * not only for perf, this is about spec.
 * To improve user-experience, provide a way to preload scripts asynchronously
     * simply a dropinRequireAsync() and put that at the begining.
 * dynamic cache: storing what file is included in a localstorage
