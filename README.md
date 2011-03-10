@@ -3,7 +3,7 @@
 [dropinrequire.js](http://jeromeetienne.github.com/dropinrequire.js)
 is a drop-in replacement for commonjs [module](http://www.commonjs.org/specs/modules/1.0/)
 in a browser. No server to run, No preprocessing of javascript files.
-If you are using [node.js](http://nodejs.org) and is willing to share code with your browser without
+If you are using [node.js](http://nodejs.org) and are willing to share code with your browser without
 hassle, [dropinrequire.js](http://jeromeetienne.github.com/dropinrequire.js) is for you.
 
 ## How to use it
