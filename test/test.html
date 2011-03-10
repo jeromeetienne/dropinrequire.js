@@ -8,14 +8,30 @@
 
 	<script type="text/javascript">
 		var supermod	= require("./parentmodule.js");
+		// call a function in supermod
 		console.assert(supermod.aFunction() === "im the parent");
+		// call a function which is delegated in the kid
 		console.assert(supermod.kid() === "im the kid");
+		// test if wow === 42 in a loaded supermod
 		console.assert(supermod.wow == 42);
+		// test if it is still 42, if it is re-require()
 		console.assert(require('./parentmodule.js').wow == 42);
+		// change wow value
 		supermod.wow	= 99;
+		// check it is actually changed in the loaded module
 		console.assert(supermod.wow == 99);
+		// check if it is still 99 if i require(), aka is it cached
 		console.assert(require('./parentmodule.js').wow == 99);
-		require('./parentmodul45e.js')
+		// test the exception is throw if download is not ok
+		try {
+			require('./parentmodul45e.js')			
+		}catch(request){
+			var exceptThrown	= true;			
+		}
+		console.assert(exceptThrown, "require('./inexistingmodule.js') has NOT thrown an execption")
+		
+		console.log("The failed get is done on purpose during the test.")
+		console.log("in the js console, you should see no assert if all tests passed")
 	</script>
 </body>
 </html>
