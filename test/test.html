@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<h1>dropin require() in your browser</h1>
+	<script type="text/javascript" src="../dropin_require.js"></script>
+
+	<script type="text/javascript">
+		console.log("requireWeb", requireWeb);					
+		var supermod	= require("./parentmodule.js");
+		console.log(supermod.aFunction())
+		console.log(supermod.kid())
+	</script>
+</body>
+</html>
