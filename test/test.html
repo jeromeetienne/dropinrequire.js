@@ -28,10 +28,15 @@
 		}catch(request){
 			var exceptThrown	= true;			
 		}
-		console.assert(exceptThrown, "require('./inexistingmodule.js') has NOT thrown an execption")
+		console.assert(exceptThrown, "require('./inexistingmodule.js') has NOT thrown an execption");
 		
-		console.log("The failed get is done on purpose during the test.")
-		console.log("in the js console, you should see no assert if all tests passed")
+		console.log("The failed get is done on purpose during the test.");
+		console.log("in the js console, you should see no assert if all tests passed");
+
+		// check nested requires
+		var nestedmod = require('./nestedModules/nestedModule.js');
+		console.assert(nestedmod() === 'im nested');
+		console.assert(nestedmod.nestedChild() === 'im the nested child');
 	</script>
 </body>
 </html>
