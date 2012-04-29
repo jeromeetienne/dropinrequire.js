@@ -1,166 +1,158 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <title></title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="date" content="" />
-</head>
-<body>
-<div id="drop-in-require"
-><h1
-  >Drop-In require</h1
-  ><p
-  ><a href="http://jeromeetienne.github.com/dropinrequire.js"
-    >dropinrequire.js</a
-    > is a drop-in replacement for commonjs <a href="http://www.commonjs.org/specs/modules/1.0/"
-    >module</a
-    > in a browser. No server to run, No preprocessing of javascript files. If you are using <a href="http://nodejs.org"
-    >node.js</a
-    > and are willing to share code with your browser without hassle, <a href="http://jeromeetienne.github.com/dropinrequire.js"
-    >dropinrequire.js</a
-    > is for you.</p
-  ><div id="how-to-use-it"
-  ><h2
-    >How to use it</h2
-    ><p
-    >You just include this in your webpage</p
-    ><pre
-    ><code
-      >&lt;script type=&quot;text/javascript&quot; src=&quot;./dropin_require.js&quot;&gt;&lt;/script&gt;
-</code
-      ></pre
-    ><p
-    >And after that you can use require(filename) to import your node module in the web browser. Suppose you got a module <code
-      >foobar.js</code
-      ></p
-    ><pre
-    ><code
-      >exports.foo = &quot;bar&quot;;
-</code
-      ></pre
-    ><p
-    >then this html will display <code
-      >bar</code
-      >. Here it is a <a href="http://jeromeetienne.github.com/dropinrequire.js/demo/"
-      >demo</a
-      > to show, and not tell.</p
-    ><pre
-    ><code
-      >&lt;script src=&quot;../dropin_require.js&quot;&gt;&lt;/script&gt;
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ImageProcessing.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">DropinRequire.js</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="https://github.com/jeromeetienne/dropinrequire.js">Github</a></li>
+              <li><a href="#howto">How To</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+	<div class="container">
+		<!-- Main hero unit for a primary marketing message or call to action -->
+		<div class="hero-unit">
+			<h1>DropinRequire.js</h1>
+			<h2>drop-in replacement for commonjs module in a browser.</h2>
+			<p>
+				<a href="http://jeromeetienne.github.com/dropinrequire.js">dropinrequire.js</a> is
+				a drop-in replacement for commonjs
+				<a href="http://www.commonjs.org/specs/modules/1.0/">module</a> in a browser.
+				No server to run, No preprocessing of javascript files. It is very simple it
+				needs only
+				<a href="https://github.com/jeromeetienne/dropinrequire.js/blob/master/dropin_require.original.js#L1-20">20-lines</a>
+				of js.
+				It is designed for rapid prototyping, not for <em>production</em>
+				(see <a href="#performance">details</a>). If you are in a rush, are
+				using <a href="http://nodejs.org">node.js</a> and are willing to
+				share code with your browser without hassle,
+				<a href="http://jeromeetienne.github.com/dropinrequire.js">dropinrequire.js</a>
+				is for you.
+			</p>
+			<p><a href="https://github.com/jeromeetienne/dropinrequire.js" class="btn btn-primary btn-large">Go Github &raquo;</a></p>
+		</div>
+		<div class="page-header">
+			<h1>How to use it</h1>
+			<a name="howto"></a><p
+	        </div>
+		<div class="row">
+			<p>You just include this in your webpage</p>
+			<pre class="prettyprint">
+&lt;script type=&quot;text/javascript&quot; src=&quot;./dropin_require.js&quot;&gt;&lt;/script&gt;
+</pre>
+				<p>And after that you can use require(filename) to import your node module in the
+				web browser. Suppose you got a module
+				<code >foobar.js</code>
+				</p>
+				<pre class="prettyprint">
+exports.foo = "bar";
+</pre>
+				<p>then this html will display <code>bar</code>.
+				Here it is a <a href="examples/">example</a> to show, and not tell.</p>
+				<pre  class="prettyprint">
+&lt;script src="../dropin_require.js";&gt;&lt;/script&gt;
 &lt;script&gt;
     alert( require('./foobar.js').foo );
 &lt;/script&gt;
-</code
-      ></pre
-    ></div
-  ><div id="about"
-  ><h2
-    >About</h2
-    ><p
-    >The code is available on <a href="https://github.com/jeromeetienne/dropinrequire.js"
-      >github</a
-      > under <a href="https://github.com/jeromeetienne/dropinrequire.js/blob/master/MIT-LICENSE.txt"
-      >MIT license</a
-      > and has been written by <a href="http://jetienne.com"
-      >Jerome Etienne</a
-      >. That's it. No fuss no muss.</p
-    ></div
-  ></div
->
-<style>
-body {
-    margin: auto;
-    padding-right: 1em;
-    padding-left: 1em;
-    max-width: 44em; 
-    border-left: 1px solid #eee;
-    border-right: 1px solid #eee;
-    font-family		: Verdana, sans-serif;
-    font-size		: 100%;
-    line-height		: 140%;
-    color		: #eee; 
-    background-color	: #22252a;
-}
-pre {
-    border		: 1px dotted gray;
-    background-color	: #444a50;
-    color		: #1111111;
-    padding		: 0.5em;
-}
-code {
-	font-family	: monospace;
-}
-a { 
-	text-decoration	: none;
-	color		: lightSteelBlue; 
-}
-a:hover {
-	text-decoration	: underline;
-}
-h1, h2, h3, h4, h5 { font-family: verdana;
-                     font-weight: bold;
-                     border-bottom: 1px dotted #eee;
-                     color: lightSteelBlue; }
-h1 {
-	color		: #cd5;
-        font-size	: 130%;
-}
-h1:nth-child(1) {
-	font-size	: 300%;
-	text-align	: center;
-	height		: 1em;
-}
-h2 {
-        font-size	: 110%;
-}
+</pre>
+		</div>
+		<div class="page-header">
+			<h1>Performance vs Compatibility</h1>
+			<a name="performance"></a><p
+	        </div>
+		<div class="row">
+			<a href="http://jeromeetienne.github.com/dropinrequire.js">dropinrequire.js</a> goals
+			were to be short and compatible. The compatibility part is the painfull one. Nodejs
+			<a href="http://nodejs.org/docs/v0.4.3/api/globals.html#require">require</a> is
+			synchronous, so when you require you dont do anything else. To ensure compatibility,
+			dropinrequire must be synchronous too. But It is ok for nodejs because reading files
+			from local disks is fast, much faster than network transfert. The same doesnt apply
+			in the browser. Because of compatibility, dropinrequire.js relies on synchronous xhr
+			which have signficant performance issues. maybe one day i will incude a cache in
+			LocalStorage. For now, i recommend <a href="https://github.com/weepy/brequire">brequire</a> for
+			production. It does require you to preprocess your js files on the server, but it is in the same
+			spirit than <a href="http://jeromeetienne.github.com/dropinrequire.js">dropinrequire.js</a>,
+			small and clean.</p>
+		</div>
 
-h3 {
-        font-size	: 95%;
-}
+		<div class="page-header">
+			<h1>About</h1>
+			<a name="about"></a><p
+	        </div>
+		<div class="row">
+			<p>
+				The code is available on
+				<a href="https://github.com/jeromeetienne/dropinrequire.js">github</a>
+				under
+				<a href="https://github.com/jeromeetienne/dropinrequire.js/blob/master/MIT-LICENSE.txt">MIT license</a>
+				and has been written by <a href="http://jetienne.com">Jerome Etienne</a>.
+				That's it. No fuss no muss.
+			</p>
+		</div>
+	    </div> <!-- /container -->
 
-h4 {
-        font-size	: 90%;
-        font-style	: italic;
-}
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
+	<script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+	<script>jQuery(function(){ prettyPrint(); });</script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-transition.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-alert.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-modal.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tab.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tooltip.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-popover.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-button.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-carousel.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-typeahead.js"></script>
 
-h5 {
-        font-size	: 90%;
-        font-style	: italic;
-}
-
-h1.title {
-        font-size	: 200%;
-        font-weight	: bold;
-        padding-top	: 0.2em;
-        padding-bottom	: 0.2em;
-        text-align	: left;
-        border		: none;
-}
-
-dt code {
-        font-weight	: bold;
-}
-dd p {
-        margin-top	: 0;
-}
-img {
-/*	border-color	: white;
-	border-style	: solid;
-*/}
-
-#footer {
-        padding-top	: 1em;
-        font-size	: 70%;
-        color		: gray;
-        text-align	: center;
-}
-
-</style>
-<!-- follow me on twitter -->
-<a href="http://www.twitter.com/jerome_etienne"><img style="position: absolute; top: 10px; right: 10px; border: 0;" src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow jerome_etienne on Twitter"/></a>
-<!-- github ribbon -->
-<a href="https://github.com/jeromeetienne/dropinrequire.js"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://assets0.github.com/img/ce742187c818c67d98af16f96ed21c00160c234a?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_left_gray_6d6d6d.png&path=" alt="Fork me on GitHub"></a>
-</body>
+	    <!-- Github ribbon -->
+	    <a href="https://github.com/jeromeetienne/dropinrequire.js" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 9999;" src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
+  </body>
 </html>
-
